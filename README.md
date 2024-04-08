@@ -35,7 +35,7 @@ Steps **_4_** and **_5_** need to be done everytime to start the app.
 
 The **_Session Id_** is unique, and automatically saves the current chat under that **_Session Id_** (or creates a new **_Session Id_** with the current chat if it didn't already exist). If the same **_Session Id_** is later entered, it automatically resumes that chat (so the model will have access to all the previous exchanges that were made under that **_Session Id_**).
 
-
+# 
 For more info on Ollama, and how to manage installed models, e.g., customize the system prompt for installed models, manage GPU vs CPU usage, etc., see: https://github.com/ollama/ollama
 
 ## To-Do List
