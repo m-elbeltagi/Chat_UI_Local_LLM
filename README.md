@@ -39,6 +39,8 @@ The **_Session Id_** is unique, and automatically saves the current chat under t
 For more info on Ollama, and how to manage installed models, e.g., customize the system prompt for installed models, manage GPU vs CPU usage, etc., see: https://github.com/ollama/ollama
 #
 
+![CHAT_UI](static/images/Chat_UI.png) 
+
 ## To-Do List
 This is just a prototype, the next few functionalitities I want to add are:
 - erase old chats
@@ -49,4 +51,4 @@ This is just a prototype, the next few functionalitities I want to add are:
 - "prettify" the web page
 
 
-![CHAT_UI](static/images/Chat_UI.png) 
+
