@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Chat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling on the body directly */
+        }
+	body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("/static/images/llama_background.png"); 
+            background-size: cover; /* Cover the entire page */
+            opacity: 0.5; /* Adjust for desired transparency level */
+            z-index: -1; /* Ensure it's behind other content */
+	}
+        #chat-container {
+            background-color: white;
+            width: 60%;
+            max-width: 800px;
+            /* Adjust the height to take up most of the viewport, minus some margin */
+            height: 90vh; /* Adjust this value as needed */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+        }
+        #chat-history {
+            flex-grow: 1;
+            overflow-y: auto; /* Ensure it's scrollable */
+            padding: 20px;
+            background: #e5e5e5;
+        }
+        #chat-history p {
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+        }
+        #chat-history strong {
+            font-weight: bold;
+        }
+        #chat-form {
+            display: flex;
+            padding: 10px;
+            background: #f4f4f4;
+            border-top: 1px solid #ccc;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #submit-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        #session-info, #model-select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 20px);
+        }
+        #session-info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">Ollama Chat</div>
+        <div id="session-info">
+            <input type="text" id="session-id" placeholder="Session ID">
+        </div>
+        <select id="model-select">
+            <option value="gemma:latest">gemma:latest</option>
+        </select>
+        <div id="chat-history">
+            <!-- Chat history will be dynamically inserted here -->
+            <p><strong>You:</strong> Hello!</p>
+            <p><strong>Model:</strong> Hello! How can I assist you today?</p>
+        </div>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type your message here...">
+            <button type="button" id="submit-button">Send</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+		$('#submit-button').click(function(e) {
+			e.preventDefault(); // Prevent the default form submission
+
+			// Gather the data
+			var sessionId = $('#session-id').val();
+			var chosenModel = $('#model-select').val();
+			var userMessage = $('#user-input').val();
+
+			// Clear the input field after sending
+			$('#user-input').val('');
+
+			// Send the data to the Flask server using AJAX
+			$.ajax({
+				type: 'POST',
+				url: '/chat', // Flask route (no need to specify full url, browser resolves it based on current location where script is running)
+				contentType: 'application/json',
+				data: JSON.stringify({
+					sessionId: sessionId,
+					chosenModel: chosenModel,
+					message: userMessage
+				}),
+				success: function(response) {
+					// Here, you might want to update the chat history with the user's message
+					// and the response from the chatbot.
+					console.log(response);
+					// Append the user's message to the chat history
+					$('#chat-history').append('<p><strong>You:</strong> ' + userMessage + '</p>');
+					// Append the chatbot's response to the chat history, assuming the response object has a property 'reply'
+					$('#chat-history').append('<p><strong>Chatbot:</strong> ' + response.response + '</p>');
+				},
+				error: function(xhr, status, error) {
+					// Handle errors here, for example, log them to the console or display an error message
+					console.error("Error: " + status + " " + error);
+				}
+			});
+		});
+	});
+</script>
+
+</body>
+</html>
