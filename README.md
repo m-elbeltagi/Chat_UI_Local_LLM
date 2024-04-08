@@ -48,3 +48,6 @@ This is just a prototype, the next few functionalitities I want to add are:
 - stream model responses (this already works in initial_testing_2.py file, but output needs some parsing)
 - add way to automatically include new models to options
 - "prettify" the web page
+
+
+![CHAT_UI](static/images/Chat_UI.png) 
