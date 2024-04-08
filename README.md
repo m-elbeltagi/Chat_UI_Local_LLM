@@ -2,7 +2,7 @@
 
 It is becoming increasingly feasible to run LLMs locally, especially using tools that facitlitate downloading and managing different versions of open source LLms like Ollama. Hoever, Ollama only allows interaction with a local model via the command line, and with no access to previous chat sessions. Here I attempt to make this interaction easier by creating a chat interface for locally running LLms, which also saves previous chats, and allows resuming them.
 
-I started by trying to send requests to the Ollama API directly, and parsing the response. I soon found that the LangChain framework has many built-in functionalities to facilitate this, so I switched to interacting with the Ollama API via LangChain, and constructing a "chat with memory" pipeline. Using Flask I turned this into a web application, with a simple HTML that displayes the interface, sends data (using AJAX) to the Flask app, and displayes the model's output. 
+I started by trying to send requests to the Ollama API directly, and parsing the response. I soon found that the LangChain framework has many built-in functionalities to facilitate this, so I switched to interacting with the Ollama API via LangChain, and constructing a "chat with memory" pipeline. Using Flask I turned this into a web application, with a simple HTML that displayes the interface, sends & receives data (using AJAX) from the Flask app, and displayes the model's output. 
 
 ![CHAT_UI](static/images/Chat_UI.png) 
 
