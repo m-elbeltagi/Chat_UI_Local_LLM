@@ -10,13 +10,13 @@ I started by trying to send requests to the Ollama API directly, and parsing the
 
 ``` curl -fsSL https://ollama.com/install.sh | sh ```
 
-Or download the Windows installer: https://ollama.com/download/windows
+  Or download the Windows installer: https://ollama.com/download/windows
 
 2) Install the model of interest:
 
 ``` ollama pull gemma:latest  ```
 
-or whatever other model you want (Gemma has very good performance to size ratio, making it ideal for running locally).
+  or whatever other model you want (Gemma has very good performance to size ratio, making it ideal for running locally).
 
 3) Start the Ollama server:
 
@@ -28,7 +28,7 @@ or whatever other model you want (Gemma has very good performance to size ratio,
 
 5) Run app.py, then open the local host url
 
-The **_Session Id_** is unique, and automatically saves the current chat under that **_Session Id_** (or creates a new **_Session Id_** with the current chat if it didn't already exist). If the same **_Session Id_** is later entered, it automatically resumes that chat (so the model will have access to all the previous exchanges that were made under that **_Session Id_**).
+  The **_Session Id_** is unique, and automatically saves the current chat under that **_Session Id_** (or creates a new **_Session Id_** with the current chat if it didn't already exist). If the same **_Session Id_** is later entered, it automatically resumes that chat (so the model will have access to all the previous exchanges that were made under that **_Session Id_**).
 
 ## To-Do List
 This is just a prototype, the next few functionalitities I want to add are:
