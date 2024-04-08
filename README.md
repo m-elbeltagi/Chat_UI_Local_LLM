@@ -8,12 +8,12 @@ I started by trying to send requests to the Ollama API directly, and parsing the
 
 1) First install Ollama. On Linux run:
 
-``` curl -fsSL https://ollama.com/install.sh | sh ```       or download the Windows installer: https://ollama.com/download/windows
+``` curl -fsSL https://ollama.com/install.sh | sh ``` ,      or download the Windows installer: https://ollama.com/download/windows
   
 
 2) Install the model of interest:
 
-``` ollama pull gemma:latest  ```         or whatever other model you want (Gemma has very good performance to size ratio, making it ideal for running locally).
+``` ollama pull gemma:latest  ``` ,        or whatever other model you want (Gemma has very good performance to size ratio, making it ideal for running locally).
 
 
 3) Install the packages in the requirements.txt file (probably best to use a dedicated environment for this, to avoid conflicts):
