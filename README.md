@@ -35,7 +35,7 @@ I started by trying to send requests to the Ollama API directly, and parsing the
 
 Steps **_4_** and **_5_** need to be done everytime to start the app.
 
-The **_Session Id_** is unique, and automatically saves the current chat under that **_Session Id_** (or creates a new **_Session Id_** with the current chat if it didn't already exist). If the same **_Session Id_** is later entered, it automatically resumes that chat, so the model will have access to all the previous exchanges that were made under that **_Session Id_**.
+The **_Session ID_** is unique, and automatically saves the current chat under that **_Session ID_** (or creates a new **_Session ID_** with the current chat if it didn't already exist). If the same **_Session ID_** is later entered, it automatically resumes that chat, so the model will have access to all the previous exchanges that were made under that **_Session ID_**.
 
 # 
 For more info on Ollama, and how to manage installed models, e.g., customize the system prompt for installed models, manage GPU vs CPU usage, etc., see: https://github.com/ollama/ollama
@@ -46,7 +46,7 @@ For more info on Ollama, and how to manage installed models, e.g., customize the
 ## To-Do List
 This is just a prototype, the next few functionalitities I want to add are:
 - erase old chats
-- view old chats (should auto load if **_Session Id_** already exists)
+- view old chats (should auto load if **_Session ID_** already exists)
 - parse old chats, so viewing isn't painful (langchain built-in methods for this?)
 - stream model responses (this already works in initial_testing_2.py file, but output needs some parsing)
 - add way to automatically include new models to options
