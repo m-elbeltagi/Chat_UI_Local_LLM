@@ -4,6 +4,8 @@ It is becoming increasingly feasible to run LLMs locally, especially using tools
 
 I started by trying to send requests to the Ollama API directly, and parsing the response. I soon found that the LangChain framework has many built-in functionalities to facilitate this, so I switched to interacting with the Ollama API via LangChain, and constructing a "chat with memory" pipeline. Using Flask I turned this into a web application, with a simple HTML that displayes the interface, sends data (using AJAX) to the Flask app, and displayes the model's output. 
 
+![CHAT_UI](static/images/Chat_UI.png) 
+
 ## How To Use
 
 1) First install Ollama. On Linux run:
@@ -39,7 +41,7 @@ The **_Session Id_** is unique, and automatically saves the current chat under t
 For more info on Ollama, and how to manage installed models, e.g., customize the system prompt for installed models, manage GPU vs CPU usage, etc., see: https://github.com/ollama/ollama
 #
 
-![CHAT_UI](static/images/Chat_UI.png) 
+
 
 ## To-Do List
 This is just a prototype, the next few functionalitities I want to add are:
