@@ -1,4 +1,4 @@
-# Chat_UI_Local_LLM
+# Chat UI for Locally Running LLMs
 
 It is becoming increasingly feasible to run LLMs locally, especially using tools that facitlitate downloading and managing different versions of open source LLms like Ollama. Hoever, Ollama only allows interaction with a local model via the command line, and with no access to previous chat sessions. Here I attempt to make this interaction easier by creating a chat interface for locally running LLms, which also saves previous chats, and allows resuming them.
 
